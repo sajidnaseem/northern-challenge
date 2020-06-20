@@ -1,12 +1,12 @@
 <div class="row content" >
-  <div class="col-lg-2 col-sm"></div>
-  <div class="col-sm col-lg-8">
+  <div class="col-lg-2 col-sm-12 col-md-12"></div>
+  <div class="col-md-12 col-sm-12 col-lg-8 max-width">
     <h1 class="heading">{{ 'title' | translate | uppercase}}</h1>
     <p [hidden]="!isHideForm">{{ 'description' | translate}}</p>
     <from [hidden]="!isHideForm" [formGroup]="form" (submit)="onSubmit()">
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-12 col-sm">
           <div class="form-group">
             <div *ngIf="form.controls.username.invalid && (form.controls.username.dirty || form.controls.username.touched)"
                  class="alert alert-danger error-message">
@@ -18,13 +18,12 @@
 
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="form-group">
-          <select class="form-control custom-select mr-sm-2" fromControlname="interest" id="ControlSelect1" placeholder="Your Email Address*">
+          <select class="form-control custom-select mr-sm-2" (change)="changeInterest($event)"  fromControlname="interest" id="ControlSelect1" >
             <option value="interest" class="color-gray" disabled selected hidden>Your interests</option>
-            <option value="1">Development</option>
-            <option value="2">Marketing</option>
-            <option value="3">R & D</option>
+            <option *ngFor="let interest of interests" value="{{interest}}">{{interest}}</option>
+
           </select>
           </div>
         </div>
@@ -37,7 +36,7 @@
     </from>
     <app-thank-you [hidden]="isHideForm"></app-thank-you>
   </div>
-  <div class="col-sm col-lg-2"></div>
+  <div class="col-sm-12 col-lg-2 col-md-12"></div>
 
   <div class="col-sm" [hidden]="!loading"> <app-loading></app-loading></div>
 </div>

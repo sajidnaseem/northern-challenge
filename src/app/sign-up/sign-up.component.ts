@@ -17,6 +17,8 @@ export class SignUpComponent implements OnInit {
   form: any;
   loading: boolean = false;
   isHideForm: boolean = true;
+  interests: any = ['Development', 'Accounting', 'Marketing', 'Other']
+
   constructor(
     private  fb: FormBuilder,
     private signup: FakeSignUpService,
@@ -31,6 +33,13 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+  // Choose interest using select dropdown
+  changeInterest(e) {
+    this.form.get('interest').setValue(e.target.value, {
+      onlySelf: false
+    });
+  }
+
   onSubmit() {
     this.loading = true;
     const signup = this.signup.createAccount(this.form.value)
@@ -39,9 +48,8 @@ export class SignUpComponent implements OnInit {
         data => {
           console.log(this.form.value);
           this.loading = false;
-          // this.router.navigate(['thankyou']);
-          this.form.reset();
           this.isHideForm = false;
+          this.form.reset();
         },
         error => {
           alert(error.error.message);
