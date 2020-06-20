@@ -1,0 +1,43 @@
+<div class="row content" >
+  <div class="col-lg-2 col-sm"></div>
+  <div class="col-sm col-lg-8">
+    <h1 class="heading">{{ 'title' | translate | uppercase}}</h1>
+    <p [hidden]="!isHideForm">{{ 'description' | translate}}</p>
+    <from [hidden]="!isHideForm" [formGroup]="form" (submit)="onSubmit()">
+
+    <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <div *ngIf="form.controls.username.invalid && (form.controls.username.dirty || form.controls.username.touched)"
+                 class="alert alert-danger error-message">
+              <div *ngIf="form.controls.username.errors.required || form.controls.username.errors.isValidEmail">
+                Please enter vaild email address.
+              </div>
+            </div>
+          <input  type="email" formControlName="username" class="form-control form-control-lg" id="InputEmail1" aria-describedby="emailHelp" placeholder="Your Email Address*">
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+          <select class="form-control custom-select mr-sm-2" fromControlname="interest" id="ControlSelect1" placeholder="Your Email Address*">
+            <option value="interest" class="color-gray" disabled selected hidden>Your interests</option>
+            <option value="1">Development</option>
+            <option value="2">Marketing</option>
+            <option value="3">R & D</option>
+          </select>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <button  type="submit" id="sign-btn" [disabled]="!form.valid" (click)="onSubmit()" class="btn btn-primary">{{'signup' | translate}}<span class="material-icons icon-position">arrow_right </span></button>
+      </div>
+    </div>
+    </from>
+    <app-thank-you [hidden]="isHideForm"></app-thank-you>
+  </div>
+  <div class="col-sm col-lg-2"></div>
+
+  <div class="col-sm" [hidden]="!loading"> <app-loading></app-loading></div>
+</div>

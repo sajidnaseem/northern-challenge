@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'https://fonts.googleapis.com/css?family=Material+Icons';
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500');
+
+@import "assets/custom";
+/* Importing Bootstrap SCSS file. */
+//@import '~bootstrap/scss/bootstrap';
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Optional
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/code";
+@import "../node_modules/bootstrap/scss/grid";

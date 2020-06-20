@@ -1,0 +1,27 @@
+$body-bg: #282828;
+$body-color: #fff;
+
+$font-family-merriweather:
+  "Merriweather", "Montserrat" !default;
+$primary: #d02035;
+$accent : #797979;
+$secondary: #282828;
+$colors: (
+  "primary": $primary,
+  "accent": $accent,
+  "secondary": $secondary
+) !default;
+h1{
+  font-family: 'Montserrat';
+  font-size: 65px;
+  line-height: 68px;
+  font-weight: 700;
+  position: relative;
+
+}
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": #ff4136
+);
+
