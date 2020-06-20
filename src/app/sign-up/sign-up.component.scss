@@ -51,6 +51,7 @@ button#sign-btn {
   background: #d02035;
   border: none;
   border-radius: 3px;
+  font-weight: bold;
 }
 
 button#sign-btn:active{
@@ -97,7 +98,7 @@ p{
 
 .alert.alert-danger.error-message {
   position: absolute;
-  top: -23px;
+  top: -13px;
   right: 15px;
   font-size: 12px;
   font-family: Merriweather;
